@@ -15,11 +15,18 @@ function Calculadora() {
 
 
         <div className='row mt-3'>
-                <div className='col-lg-6'>
-                    <h4>Potencia de Panel</h4>
-                    <label className='form-label' htmlFor='potenciaDePanel'>Ingrese potencia de panel</label>
-                    <input id='potenciaDePanel' name='potenciaDePanel' placeholder='1000000' type='number' className='form-control' value={potenciaDePanel} onChange={(e) => setPotenciaDePanel(e.target.value)}></input>
+                <div className='col-lg-3'>
+                    <h4>Potencia de Panel (W)</h4>
+                    <input id='potenciaDePanel' name='potenciaDePanel' placeholder='450' type='number' className='form-control' value={potenciaDePanel} onChange={(e) => setPotenciaDePanel(e.target.value)}></input>
                 </div>
+                <div className='col-lg-3'>
+                    <h4>Cantidad de Paneles</h4>
+                    <input id='potenciaDePanel' name='potenciaDePanel' placeholder='8' type='number' className='form-control' value={potenciaDePanel} onChange={(e) => setPotenciaDePanel(e.target.value)}></input>
+                </div>
+
+
+                <div className='w-100'></div>  /* Esta linea hace un salto de linea en bootstrap */ 
+
 
             <div className='col-lg-6'>
                 <Table striped bordered hover>
