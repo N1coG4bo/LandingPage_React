@@ -6,6 +6,7 @@ import Heropropio from './components/Hero';
 import ServiciosPropios from './components/Servicios';
 import SolucionesPropias from './components/Soluciones';
 import PlanesPropio from './components/planes';
+import TestimonioPropio from './components/Testimonio';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <SolucionesPropias/>
         <Calculadora/>
         <PlanesPropio/>
-          
+        <TestimonioPropio/>
         </div>
     </div>
   );
