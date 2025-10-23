@@ -7,6 +7,7 @@ import ServiciosPropios from './components/Servicios';
 import SolucionesPropias from './components/Soluciones';
 import PlanesPropio from './components/planes';
 import TestimonioPropio from './components/Testimonio';
+import FaqPropio from './components/Faq';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Calculadora/>
         <PlanesPropio/>
         <TestimonioPropio/>
+        <FaqPropio/>
         </div>
     </div>
   );
