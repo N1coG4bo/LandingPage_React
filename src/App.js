@@ -5,6 +5,7 @@ import NavbarPropio from './components/Navbar';
 import Heropropio from './components/Hero';
 import ServiciosPropios from './components/Servicios';
 import SolucionesPropias from './components/Soluciones';
+import PlanesPropio from './components/planes';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <ServiciosPropios/>
         <SolucionesPropias/>
         <Calculadora/>
+        <PlanesPropio/>
           
         </div>
     </div>
