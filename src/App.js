@@ -4,6 +4,7 @@ import Calculadora from './components/calculadoraintegral';
 import NavbarPropio from './components/Navbar';
 import Heropropio from './components/Hero';
 import ServiciosPropios from './components/Servicios';
+import SolucionesPropias from './components/Soluciones';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <NavbarPropio/>
         <Heropropio/>
         <ServiciosPropios/>
+        <SolucionesPropias/>
         <Calculadora/>
           
         </div>
