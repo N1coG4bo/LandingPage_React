@@ -4,33 +4,41 @@ import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
 import Image from 'react-bootstrap/Image';
 
-
 function Heropropio() {
     return (
         <div>
             <div className='row'>
                 <div className='col-lg-6'>
                     <div className="d-flex justify-content-around">
-                        <Card style={{ width: '30rem' , height: '20rem' }}>
-                            <Card.Img variant="top" src="holder.js/100px180" />
+                        <Card style={{ width: '30rem', height: '20rem' }}>
+                            <Card.Img variant="top" src="/panel-icono.jpg" />
                             <Card.Body>
-                                <Card.Title>Card Title</Card.Title>
+                                <Card.Title>
+                                    Energía solar accesible y confiable
+                                </Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.
+                                    Reduce tu cuenta de luz y gana independencia con soluciones
+                                    fotovoltaicas diseñadas para hogares y pymes chilenas.
+                                    Con HelioAndes Energía, transformas el sol en ahorro real.
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                                <div className="d-flex gap-2">
+                                    <Button variant="success" href="#demo-calculadora">
+                                        Ver DEMO
+                                    </Button>
+                                    <Button variant="outline-primary" href="/catalogo-helioandes.pdf">
+                                        Descargar Catálogo
+                                    </Button>
+                                </div>
                             </Card.Body>
                         </Card>
                     </div>
                 </div>
                 <div className='col-lg-6'>
-                    <Image src="/panel.jpg" fluid />;
+                    <Image src="/panel.jpg" fluid />
                 </div>
-
             </div>
         </div>
     );
 }
-export default Heropropio;
 
+export default Heropropio;

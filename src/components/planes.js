@@ -4,51 +4,54 @@ import Button from 'react-bootstrap/Button';
 
 function PlanesPropio() {
     return (
-        <div className='servicios'>.
-
+        <div className='servicios'>
             <div className='row'>
                 <div className='col-lg-4'>
                     <h1>
-                        Soluciones
+                        Planes HelioAndes
                     </h1>
                 </div>
             </div>
+
             <CardGroup>
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Plan Básico</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            Sistema solar diseñado para hogares con consumo moderado.
+                            Incluye instalación certificada, monitoreo básico y soporte inicial.
+                            Ideal para quienes buscan iniciarse en la energía solar con una inversión controlada.
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="success">Solicitar evaluación</Button>
                     </Card.Body>
                 </Card>
+
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Plan Optimizado</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            La opción más equilibrada entre rendimiento y costo.
+                            Incluye monitoreo avanzado, estructura reforzada y garantía extendida.
+                            Perfecto para hogares o pymes que buscan maximizar su ahorro energético.
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="success">Solicitar evaluación</Button>
                     </Card.Body>
                 </Card>
+
                 <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
+
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Title>Plan Autónomo</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                            Solución completa con almacenamiento en baterías para independencia total.
+                            Diseñado para zonas rurales, proyectos off-grid o usuarios que buscan autonomía energética.
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="success">Solicitar evaluación</Button>
                     </Card.Body>
                 </Card>
             </CardGroup>
-
         </div>
     );
 }

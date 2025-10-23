@@ -3,8 +3,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 function ServiciosPropios() {
     return (
-        <div className='servicios'>.
-
+        <div className='servicios'>
             <div className='row'>
                 <div className='col-lg-4'>
                     <h1>
@@ -12,66 +11,65 @@ function ServiciosPropios() {
                     </h1>
                 </div>
             </div>
+
             <CardGroup>
                 <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img variant="top" src="/servicio-estudio.jpg" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title>Estudio Energético</Card.Title>
                         <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in
-                            to additional content. This content is a little bit longer.
+                            Analizamos tu consumo, ubicación y radiación solar para dimensionar el sistema fotovoltaico ideal.
+                            Nuestro diagnóstico técnico asegura el equilibrio perfecto entre potencia, costo y rendimiento.
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
+                        <small className="text-muted">Servicio certificado por HelioAndes Energía</small>
                     </Card.Footer>
                 </Card>
+
                 <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img variant="top" src="/servicio-instalacion.jpg" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title>Instalación Certificada SEC</Card.Title>
                         <Card.Text>
-                            This card has supporting text below as a natural lead-in to
-                            additional content.
+                            Montaje profesional bajo normativa eléctrica chilena (SEC).
+                            Garantizamos seguridad, eficiencia y un acabado estético de alta calidad en cada proyecto.
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
+                        <small className="text-muted">Cumple norma SEC vigente</small>
                     </Card.Footer>
                 </Card>
+
                 <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img variant="top" src="/servicio-monitoreo.jpg" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title>Monitoreo y Control</Card.Title>
                         <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in
-                            to additional content. This card has even longer content than the
-                            first to show that equal height action.
+                            Supervisa tu producción solar y consumo en tiempo real desde cualquier dispositivo.
+                            Accede a reportes automáticos y alertas de rendimiento para optimizar tu inversión energética.
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
+                        <small className="text-muted">Monitoreo remoto 24/7</small>
                     </Card.Footer>
-                    
                 </Card>
+
                 <Card>
-                    <Card.Img variant="top" src="holder.js/100px160" />
+                    <Card.Img variant="top" src="/servicio-mantencion.jpg" />
                     <Card.Body>
-                        <Card.Title>Card title</Card.Title>
+                        <Card.Title>Mantención y Soporte</Card.Title>
                         <Card.Text>
-                            This is a wider card with supporting text below as a natural lead-in
-                            to additional content. This card has even longer content than the
-                            first to show that equal height action.
+                            Planes preventivos y correctivos para maximizar la vida útil de tu sistema solar.
+                            Nuestro equipo técnico realiza limpieza, revisión de conexiones y pruebas de rendimiento.
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <small className="text-muted">Last updated 3 mins ago</small>
+                        <small className="text-muted">Soporte técnico nacional</small>
                     </Card.Footer>
                 </Card>
             </CardGroup>
-
         </div>
-
     );
 }
 
