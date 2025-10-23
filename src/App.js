@@ -8,6 +8,7 @@ import SolucionesPropias from './components/Soluciones';
 import PlanesPropio from './components/planes';
 import TestimonioPropio from './components/Testimonio';
 import FaqPropio from './components/Faq';
+import ContactoPropio from './components/Contacto';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <PlanesPropio/>
         <TestimonioPropio/>
         <FaqPropio/>
+        <ContactoPropio/>
         </div>
     </div>
   );
