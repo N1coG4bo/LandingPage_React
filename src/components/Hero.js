@@ -1,7 +1,6 @@
-import { Row } from 'react-bootstrap';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Placeholder from 'react-bootstrap/Placeholder';
 import Image from 'react-bootstrap/Image';
 
 function Heropropio() {
