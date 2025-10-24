@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image';
 function Heropropio() {
     return (
         <div className='Hero 'id="Hero">
-            <div className='row bg-dark text-white text-center py-4'>
+            <div className='row'>
                 <div className='col-lg-6'>
                     <div className="d-flex justify-content-around">
                         <Card style={{ width: '30rem', height: '20rem' }}>
