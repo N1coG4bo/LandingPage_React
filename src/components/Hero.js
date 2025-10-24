@@ -6,7 +6,7 @@ import Image from 'react-bootstrap/Image';
 
 function Heropropio() {
     return (
-        <div>
+        <div className='Hero 'id="Hero">
             <div className='row'>
                 <div className='col-lg-6'>
                     <div className="d-flex justify-content-around">

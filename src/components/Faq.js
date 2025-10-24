@@ -3,7 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 function FaqPropio() {
   return (
 
-    <div className='servicios'>
+    <div className='Faq' id="Faq">
             <div className='row'>
                 <div className='col-lg-4'>
                     <h1>

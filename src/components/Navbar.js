@@ -18,8 +18,8 @@ function NavbarPropio() {
               <Nav.Link href="#soluciones">Soluciones</Nav.Link>
               <Nav.Link href="#demo-calculadora">DEMO</Nav.Link>
               <Nav.Link href="#planes">Planes</Nav.Link>
-              <Nav.Link href="#testimonios">Testimonios</Nav.Link>
-              <Nav.Link href="#faq">FAQ</Nav.Link>
+              <Nav.Link href="#testimonios">Testimonio</Nav.Link>
+              <Nav.Link href="#faq">Faq</Nav.Link>
               <Nav.Link href="#contacto">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
