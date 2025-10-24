@@ -6,9 +6,9 @@ function ContactoPropio() {
         <div className="container my-5" id="contacto">
             <h2 className="fw-bold mb-4">Contacto</h2>
 
-            <div className="p-4 shadow-sm bg-white rounded-4">
+            <div className="p-4 shadow-sm bg-grey rounded-4">
                 <Form>
-                    <div className="row mb-3">
+                    <div className="row bg-grey text-white text-center mb-3">
                         <div className="col-md-6">
                             <Form.Group controlId="contactoNombre">
                                 <Form.Label>Nombre</Form.Label>

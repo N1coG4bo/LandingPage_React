@@ -221,7 +221,7 @@ export default function CalculadoraIntegral() {
   // ---- Render ----
   return (
     <div className="container my-4">
-      <div className="row g-4">
+      <div className="row bg-dark text-white text-center py-4">
         {/* ----------- Columna Izquierda: Formulario ----------- */}
         <div className="col-12 col-lg-6">
           <h4 className="mb-3">Datos del sistema</h4>
@@ -265,9 +265,6 @@ export default function CalculadoraIntegral() {
                 value={precioPanel}
                 onChange={(e) => setPrecioPanel(e.target.value.replace("-", ""))}
               />
-              <div className="form-text">
-                Si queda en 0 o vacío, no se suma a Subtotal Equipos (solo se usa para potencia).
-              </div>
             </div>
 
             {/* Equipos y Montos */}
