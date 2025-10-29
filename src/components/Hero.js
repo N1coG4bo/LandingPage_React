@@ -6,11 +6,10 @@ import Image from 'react-bootstrap/Image';
 function Heropropio() {
     return (
         <div className='Hero 'id="Hero">
-            <div className='row'>
-                <div className='col-lg-6'>
-                    <div className="d-flex justify-content-around">
+            <div className='row mt-5 mb-5'>
+                <div className='col-lg-6 '>
+                    <div className="d-flex justify-content-start">
                         <Card style={{ width: '30rem', height: '20rem' }}>
-                            <Card.Img variant="top" src="/panel-icono.jpg" />
                             <Card.Body>
                                 <Card.Title>
                                     Energía solar accesible y confiable

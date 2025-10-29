@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 function PlanesPropio() {
     return (
         <div className='servicios'>
-            <div className='row'>
+            <div className='row mt-5'>
                 <div className='col-lg-4'>
                     <h1>
                         Planes HelioAndes

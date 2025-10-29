@@ -4,7 +4,7 @@ import Image from 'react-bootstrap/Image';
 
 function TestimonioPropio() {
   return (
-    <div className='row'>
+    <div className='row mt-5'>
       <div className='col-lg-4'>
         <h1>
           Testimonios
