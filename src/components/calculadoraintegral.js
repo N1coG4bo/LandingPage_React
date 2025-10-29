@@ -50,7 +50,7 @@ function Calculadora() {
         setValorPie(10);
     }
 
-    /* moved calculation constants from JSX IIFE to here to improve order (no changes to values) */
+    
     const toNum = (v) => {
         const n = parseFloat(v);
         return Number.isFinite(n) ? n : 0;
@@ -67,7 +67,7 @@ function Calculadora() {
 
     const potenciaEstimadaKW = (potencia * cantPaneles) / 1000;
 
-    // Subtotal equipos: if panel price unknown, do not include panels
+    
     const totalBaterias = bateriaPrecioN * cantBaterias;
     const subtotalEquipos = inversorN + totalBaterias + estructuraN;
 
@@ -75,13 +75,13 @@ function Calculadora() {
 
     const instalacionFinal = instalacionBaseN * (1 + toNum(complejidad));
 
-    // Subsidio is a positive percentage representing reduction -> amount is negative
+    
     const baseParaSubsidio = subtotalEquipos + recargoTecho;
     const subsidioAmount = - baseParaSubsidio * toNum(subsidio);
 
     const garantiaAmount = subtotalEquipos * toNum(garantia);
 
-    // IVA 19% sobre (equipos con recargos - subsidios + instalacion final)
+    
     const ivaBase = (baseParaSubsidio + subsidioAmount) + instalacionFinal;
     const ivaAmount = ivaBase * 0.19;
 
@@ -99,7 +99,7 @@ function Calculadora() {
     const montoFinanciar = Math.max(0, totalAntesFinanciar - pieAmount);
 
     let tasa = toNum(planPago);
-    // nCuotas can come from nCuotasPlan state or be encoded in planPago as "tasa|nCuotas"
+    
     let nCuotas = Math.max(1, parseInt(nCuotasPlan, 10) || 1);
     if (typeof planPago === 'string' && planPago.includes('|')) {
         const parts = planPago.split('|');
