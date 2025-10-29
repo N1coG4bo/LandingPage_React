@@ -50,8 +50,71 @@ function Calculadora() {
         setValorPie(10);
     }
 
+    /* moved calculation constants from JSX IIFE to here to improve order (no changes to values) */
+    const toNum = (v) => {
+        const n = parseFloat(v);
+        return Number.isFinite(n) ? n : 0;
+    }
 
+    const potencia = toNum(potenciaDePanel);
+    const cantPaneles = toNum(cantidadDePaneles);
+    const inversorN = toNum(inversor);
+    const bateriaPrecioN = toNum(bateriaPrecio);
+    const cantBaterias = toNum(cantidadBaterias);
+    const estructuraN = toNum(estructuraCableado);
+    const instalacionBaseN = toNum(instalacionBase);
+    const pesoEnvioN = toNum(pesoEnvio);
 
+    const potenciaEstimadaKW = (potencia * cantPaneles) / 1000;
+
+    // Subtotal equipos: if panel price unknown, do not include panels
+    const totalBaterias = bateriaPrecioN * cantBaterias;
+    const subtotalEquipos = inversorN + totalBaterias + estructuraN;
+
+    const recargoTecho = subtotalEquipos * toNum(tipoTecho);
+
+    const instalacionFinal = instalacionBaseN * (1 + toNum(complejidad));
+
+    // Subsidio is a positive percentage representing reduction -> amount is negative
+    const baseParaSubsidio = subtotalEquipos + recargoTecho;
+    const subsidioAmount = - baseParaSubsidio * toNum(subsidio);
+
+    const garantiaAmount = subtotalEquipos * toNum(garantia);
+
+    // IVA 19% sobre (equipos con recargos - subsidios + instalacion final)
+    const ivaBase = (baseParaSubsidio + subsidioAmount) + instalacionFinal;
+    const ivaAmount = ivaBase * 0.19;
+
+    const envioBase = toNum(region) + pesoEnvioN * 700;
+    const envioAmount = envioBase * toNum(metodoEnvio);
+
+    const totalAntesFinanciar = subtotalEquipos + recargoTecho + subsidioAmount + instalacionFinal + ivaAmount + envioAmount + garantiaAmount;
+
+    const piePctOrVal = toNum(valorPie);
+    let pieAmount = 0;
+    if (tipoPie === 'porcentaje') pieAmount = totalAntesFinanciar * (piePctOrVal / 100);
+    else pieAmount = piePctOrVal;
+    if (pieAmount > totalAntesFinanciar) pieAmount = totalAntesFinanciar;
+
+    const montoFinanciar = Math.max(0, totalAntesFinanciar - pieAmount);
+
+    let tasa = toNum(planPago);
+    // nCuotas can come from nCuotasPlan state or be encoded in planPago as "tasa|nCuotas"
+    let nCuotas = Math.max(1, parseInt(nCuotasPlan, 10) || 1);
+    if (typeof planPago === 'string' && planPago.includes('|')) {
+        const parts = planPago.split('|');
+        tasa = toNum(parts[0]);
+        const parsed = parseInt(parts[1], 10);
+        if (!Number.isNaN(parsed) && parsed > 0) nCuotas = parsed;
+    }
+
+    // interés simple total = montoFinanciar * tasaMensual * nCuotas
+    const interesTotal = montoFinanciar * tasa * nCuotas;
+    // cuota mensual (si nCuotas>1) = (montoFinanciar + interesTotal) / nCuotas
+    const cuota = nCuotas > 1 ? (montoFinanciar + interesTotal) / nCuotas : montoFinanciar;
+    const totalFinal = pieAmount + montoFinanciar + interesTotal;
+
+    const fmt = (n) => Number.isFinite(n) ? '$ ' + n.toLocaleString('es-CL', { maximumFractionDigits: 0 }) : '—';
     return (
         <div>
             <div className='row mt-3'>
@@ -179,73 +242,6 @@ function Calculadora() {
 
                 <div className='col-lg-6'>
                     {/* Resumen derecho con cálculos según reglas de negocio */}
-                    {(() => {
-                        const toNum = (v) => {
-                            const n = parseFloat(v);
-                            return Number.isFinite(n) ? n : 0;
-                        }
-
-                        const potencia = toNum(potenciaDePanel);
-                        const cantPaneles = toNum(cantidadDePaneles);
-                        const inversorN = toNum(inversor);
-                        const bateriaPrecioN = toNum(bateriaPrecio);
-                        const cantBaterias = toNum(cantidadBaterias);
-                        const estructuraN = toNum(estructuraCableado);
-                        const instalacionBaseN = toNum(instalacionBase);
-                        const pesoEnvioN = toNum(pesoEnvio);
-
-                        const potenciaEstimadaKW = (potencia * cantPaneles) / 1000;
-
-                        // Subtotal equipos: if panel price unknown, do not include panels
-                        const totalBaterias = bateriaPrecioN * cantBaterias;
-                        const subtotalEquipos = inversorN + totalBaterias + estructuraN;
-
-                        const recargoTecho = subtotalEquipos * toNum(tipoTecho);
-
-                        const instalacionFinal = instalacionBaseN * (1 + toNum(complejidad));
-
-                        // Subsidio is a positive percentage representing reduction -> amount is negative
-                        const baseParaSubsidio = subtotalEquipos + recargoTecho;
-                        const subsidioAmount = - baseParaSubsidio * toNum(subsidio);
-
-                        const garantiaAmount = subtotalEquipos * toNum(garantia);
-
-                        // IVA 19% sobre (equipos con recargos - subsidios + instalacion final)
-                        const ivaBase = (baseParaSubsidio + subsidioAmount) + instalacionFinal;
-                        const ivaAmount = ivaBase * 0.19;
-
-                        const envioBase = toNum(region) + pesoEnvioN * 700;
-                        const envioAmount = envioBase * toNum(metodoEnvio);
-
-                        const totalAntesFinanciar = subtotalEquipos + recargoTecho + subsidioAmount + instalacionFinal + ivaAmount + envioAmount + garantiaAmount;
-
-                        const piePctOrVal = toNum(valorPie);
-                        let pieAmount = 0;
-                        if (tipoPie === 'porcentaje') pieAmount = totalAntesFinanciar * (piePctOrVal / 100);
-                        else pieAmount = piePctOrVal;
-                        if (pieAmount > totalAntesFinanciar) pieAmount = totalAntesFinanciar;
-
-                        const montoFinanciar = Math.max(0, totalAntesFinanciar - pieAmount);
-
-                        let tasa = toNum(planPago);
-                        // nCuotas can come from nCuotasPlan state or be encoded in planPago as "tasa|nCuotas"
-                        let nCuotas = Math.max(1, parseInt(nCuotasPlan, 10) || 1);
-                        if (typeof planPago === 'string' && planPago.includes('|')) {
-                            const parts = planPago.split('|');
-                            tasa = toNum(parts[0]);
-                            const parsed = parseInt(parts[1], 10);
-                            if (!Number.isNaN(parsed) && parsed > 0) nCuotas = parsed;
-                        }
-
-                        // interés simple total = montoFinanciar * tasaMensual * nCuotas
-                        const interesTotal = montoFinanciar * tasa * nCuotas;
-                        // cuota mensual (si nCuotas>1) = (montoFinanciar + interesTotal) / nCuotas
-                        const cuota = nCuotas > 1 ? (montoFinanciar + interesTotal) / nCuotas : montoFinanciar;
-                        const totalFinal = pieAmount + montoFinanciar + interesTotal;
-
-                        const fmt = (n) => Number.isFinite(n) ? '$ ' + n.toLocaleString('es-CL', { maximumFractionDigits: 0 }) : '—';
-
-                        return (
                             <div className='card p-3'>
                                 <h5>Resumen</h5>
                                 <Table striped bordered>
@@ -309,7 +305,6 @@ function Calculadora() {
                                 )}
                             </div>
                         )
-                    })()}
                 </div>
             </div>
 
