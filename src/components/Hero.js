@@ -30,13 +30,9 @@ function Heropropio() {
                   <Button variant="success" href="#demo-calculadora">
                     Ver DEMO
                   </Button>
-                  <Button variant="outline-primary" href="/catalogo-helioandes.pdf">
-                    Descargar Catálogo
-                  </Button>
-
                   {/* 👇 Nuevo botón: genera un PDF vacío */}
                   <Button variant="secondary" onClick={generarPDFVacio}>
-                    PDF vacío
+                    catalogo
                   </Button>
                 </div>
               </Card.Body>
