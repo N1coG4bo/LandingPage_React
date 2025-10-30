@@ -1,8 +1,17 @@
+import React from 'react';
+import { jsPDF } from 'jspdf';              // 👈 librería para generar PDF
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
 
 function Heropropio() {
+
+  // 👇 Genera un PDF completamente vacío (sin texto) y lo descarga
+  const generarPDFVacio = () => {
+    const doc = new jsPDF({ unit: 'pt', format: 'a4' }); // crea 1 página en blanco
+    doc.save('archivo-vacio.pdf');                       // descarga
+  };
+
   return (
     // 👇 id DEBE coincidir con el href del navbar "Inicio"
     <section className="Hero container anchor" id="home">
@@ -18,12 +27,16 @@ function Heropropio() {
                   Con HelioAndes Energía, transformas el sol en ahorro real.
                 </Card.Text>
                 <div className="d-flex gap-2">
-                  {/* 👇 apunte a la sección con id="demo-calculadora" */}
                   <Button variant="success" href="#demo-calculadora">
                     Ver DEMO
                   </Button>
                   <Button variant="outline-primary" href="/catalogo-helioandes.pdf">
                     Descargar Catálogo
+                  </Button>
+
+                  {/* 👇 Nuevo botón: genera un PDF vacío */}
+                  <Button variant="secondary" onClick={generarPDFVacio}>
+                    PDF vacío
                   </Button>
                 </div>
               </Card.Body>
