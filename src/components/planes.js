@@ -4,18 +4,20 @@ import Button from 'react-bootstrap/Button';
 
 function PlanesPropio() {
     return (
-        <div className='servicios'>
-            <div className='row mt-5'>
-                <div className='col-lg-4'>
-                    <h1>
-                        Planes HelioAndes
-                    </h1>
+        // ✅ id debe coincidir con el href del Navbar (#planes)
+        <section id="planes" className="container anchor mt-5 mb-5">
+            <div className="row">
+                <div className="col-lg-12 text-center mb-4">
+                    <h1>Planes HelioAndes</h1>
+                    <p className="text-muted">
+                        Elige el plan que mejor se adapte a tus necesidades energéticas.
+                    </p>
                 </div>
             </div>
 
-            <CardGroup>
-                <Card style={{ width: '18rem' }}>
-
+            {/* ✅ Usa CardGroup para alinear las tarjetas en fila */}
+            <CardGroup className="gap-3 justify-content-center">
+                <Card style={{ width: '18rem' }} className="shadow-sm">
                     <Card.Body>
                         <Card.Title>Plan Básico</Card.Title>
                         <Card.Text>
@@ -27,8 +29,7 @@ function PlanesPropio() {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
-
+                <Card style={{ width: '18rem' }} className="shadow-sm">
                     <Card.Body>
                         <Card.Title>Plan Optimizado</Card.Title>
                         <Card.Text>
@@ -40,8 +41,7 @@ function PlanesPropio() {
                     </Card.Body>
                 </Card>
 
-                <Card style={{ width: '18rem' }}>
-
+                <Card style={{ width: '18rem' }} className="shadow-sm">
                     <Card.Body>
                         <Card.Title>Plan Autónomo</Card.Title>
                         <Card.Text>
@@ -52,7 +52,7 @@ function PlanesPropio() {
                     </Card.Body>
                 </Card>
             </CardGroup>
-        </div>
+        </section>
     );
 }
 

@@ -117,6 +117,7 @@ function Calculadora() {
     const fmt = (n) => Number.isFinite(n) ? '$ ' + n.toLocaleString('es-CL', { maximumFractionDigits: 0 }) : '—';
     return (
         <div>
+            <section id="demo" className="container anchor mt-5 mb-5">
             <div className='row mt-3'>
                 <div className='col-lg-6'>
                     <div className='row'>
@@ -307,7 +308,7 @@ function Calculadora() {
                         )
                 </div>
             </div>
-
+          </section>
         </div>
     );
 
